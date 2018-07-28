@@ -1,0 +1,46 @@
+{%  extends 'newscards/layout.html' %}
+{% block content %}
+
+        {% for dict_item in articles %}
+
+                <div class="card" >
+                    <div class="row" padding="10px">
+                            <div class="col-md-5">
+                                <img height="300" width="400" src= "{{dict_item.urlToImage}}">
+                            </div>
+                            <div class="col-md-7">
+
+                                                        <strong> <h2>{{dict_item.title}}</h2> </strong>
+                                                        <h4>{{dict_item.publishedAt}}</h4>
+
+                                                        <h3>{{dict_item.description}}</h3>
+                                                            {% if dict_item.score == 1  %}
+                                                                <h3>Our Verdict: <strong>Real</strong></h3>
+                                                            {% endif %}
+
+                                                            {% if dict_item.score == 0  %}
+                                                                <h3>Our Verdict: <strong>Fake</strong></h3>
+                                                            {% endif %}
+
+
+
+                                                        <a type="button" id="downvotes"  href=# class="btn btn-danger pull-right"><span class="glyphicon glyphicon-thumbs-down"></span>Downvote</a> &nbsp &nbsp 
+                                                        <a type="button" id="upvotes"  href=# class="btn btn-success pull-right"><span class="glyphicon glyphicon-thumbs-up"></span>Upvote</a>
+
+
+                            </div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            <br>
+        {% endfor %}
+
+
+{% endblock %}

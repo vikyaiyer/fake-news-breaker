@@ -1,0 +1,25 @@
+{% extends 'accounts/layout.html'  %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-sm-6 col-sm-offset-3">
+            <h1>{{title}}</h1>
+            <hr/>
+
+            <form enctype='multipart/form-data' action="" method="post">{% csrf_token %}
+                {{form|crispy}}
+                <h3>Our Verdict : {{result}}</h3>
+                <input  type="submit" class="btn btn-default" name="" value="{{title}}"/>
+
+            </form>
+            <br>
+
+    </div>
+
+
+
+{% endblock content %}
+<!--
+<h2>Query: {{q}}</h2>
+<h3>Predicted by SVM : {{result}}</h3>
+-->
